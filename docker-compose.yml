@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  my-website:
+    build: .
+    ports:
+      - "9090:8000"
+    restart: always
+
+  my-redis:
+    image: redis:alpine
+    restart: always
+    volumes:              # <--- ДОБАВЛЯЕМ ЭТО
+      - redis_data:/data  # Сохраняй папку /data из контейнера в том 'redis_data'
+
+volumes:       # <--- И ОБЪЯВЛЯЕМ ТОМ В КОНЦЕ ФАЙЛА
+  redis_data:
