@@ -16,7 +16,8 @@ class SimpleHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/html; charset=utf-8')
         self.end_headers()
         
-        message = f"<h1>Сборка от Jenkins Автоматизирована!</h1><p>Ты посетитель номер: <b>{visits}</b></p>"
+        # Вот наш новый победный заголовок!
+        message = f"<h1>CI/CD НАСТРОЕН! Я DevOps!</h1><p>Ты посетитель номер: <b>{visits}</b></p>"
         self.wfile.write(message.encode('utf-8'))
 
 print("Сервер запущен...")
